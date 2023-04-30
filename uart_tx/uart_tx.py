@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-04-30 19:28:57 hamada>
+#Time-stamp: <2023-04-30 19:47:01 hamada>
 
 import serial
 import time
@@ -19,7 +19,7 @@ byte_order = 'big'
 
 uart_settings = {
     'dev': '/dev/ttyUSB0',
-    'baudrate': 115200, #9600, # 9600, 115200
+    'baudrate': 9600, #115200, #9600, # 9600, 115200
     'timeout': 10,
     }
 
@@ -32,16 +32,20 @@ uart_device = serial.Serial(uart_settings['dev'], uart_settings['baudrate'], tim
 #data = 0b00110010
 #data = 0x321
 
+'''????
 bbb = binascii.b2a_hex(b'm') # b'6d'
 bbx = byte2int(bbb) # 0x3664
 print(bbb)
 print('0x%x' % bbx)
 data = byte2int(binascii.b2a_hex(b'abcdef'), byte_order)
 print ("0x%x"%data)
+'''
 
 #data = 0xdeadbeaf
 #data = 0x31415926535897932384
 #data = 0x314159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808
+
+data = 0x6675636b4075 # fuck u
 
 time.sleep(1)
 
