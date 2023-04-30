@@ -35,3 +35,12 @@ For Ubuntu 22.04 the simplest solution is to remove the package brltty
 via sudo apt remove brltty, since its unnecessary unless you're using
 a braille e-reader, however unsure if it could cause errors later on.
 ```
+
+## 参考
+
+### とあるubuntu22 PCでの/dev/serial
+
+```
+hamada@ci01:~/git/pyuart$ ls -l /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+lrwxrwxrwx 1 root root 13  4月 30 14:58 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 -> ../../ttyUSB0
+```
