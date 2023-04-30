@@ -44,3 +44,18 @@ a braille e-reader, however unsure if it could cause errors later on.
 hamada@ci01:~/git/pyuart$ ls -l /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 lrwxrwxrwx 1 root root 13  4月 30 14:58 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 -> ../../ttyUSB0
 ```
+
+## 練習問題
+
+### 問1. 次の信号線の電圧を見てUARTプロトコルでなんと言っているか答えてください
+
+```
+HHHHHHLLHHLLHHLHLHLHLHHHLHLHHLLLHHLHLHHLHLHHLHLLLLLLLHLHLHLHLHHHLHHHHHHH
+```
+
+解答:
+
+```
+       0x66,      0x75,      0x63,      0x6B,      0x40,      0x75
+HHHHHH LLHHLLHHLH LHLHLHHHLH LHHLLLHHLH LHHLHLHHLH LLLLLLLHLH LHLHLHHHLH HHHHHH
+```
