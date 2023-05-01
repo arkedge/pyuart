@@ -33,7 +33,7 @@ uart_ascii = {
     '~' : '~~~~~~~~~~~~~~~~~~~~', # idle
 }
 
-1100
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "description goes here")
