@@ -53,5 +53,8 @@ if __name__ == '__main__':
     res = res + 'HHH'
 
 
-    print (res.replace("L", "_").replace("H","~"))
+    if False:
+        print (res.replace("L", "_").replace("H","~"))
+
+    print (res.replace("L", "👇").replace("H","👆"))    
 
