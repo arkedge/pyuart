@@ -29,9 +29,11 @@ uart_ascii = {
     'y' : '__~~____~~~~~~~~__~~', # 0x79
     'z' : '____~~__~~~~~~~~__~~', # 0x7A
     ' ' : '______________~~__~~', # 0x40
+    ',' : '____~~________~~~~~~', # 0x2C
     '~' : '~~~~~~~~~~~~~~~~~~~~', # idle
 }
 
+1100
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "description goes here")
