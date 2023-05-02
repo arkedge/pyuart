@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-04-30 19:47:01 hamada>
+#Time-stamp: <2023-05-02 17:03:29 hamada>
 
 import serial
 import time
@@ -61,64 +61,4 @@ while True:
 
 uart_device.close()
 
-
-# F@@@@@@@CK
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
-# I want to change this from python to RUST !!!!!!
 
