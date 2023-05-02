@@ -28,7 +28,7 @@ uart_ascii = {
     'x' : 'LLLLHHHHLH', # 0x78
     'y' : 'LHLLHHHHLH', # 0x79
     'z' : 'LLHLHHHHLH', # 0x7A
-    ' ' : 'LLLLLLLHLH', # 0x40
+    ' ' : 'LLLLLLHLLH', # 0x20
     ',' : 'LLHLLLLHHH', # 0x2C
     '~' : 'HHHHHHHHHH', # idle
 }
