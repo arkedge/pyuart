@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-03 15:44:13 hamada>
+#Time-stamp: <2023-05-04 21:58:35 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -44,8 +44,9 @@ class uart:
         data = data << 16 | 0x0D0A # <CR><LF>
         data_byte = int2byte(data, byte_order)
         self.uart_device.write(data_byte)
-        print("0x%x" % byte2int(data_byte, byte_order))
-        time.sleep(1.0)
+        if False:
+            print("0x%x" % byte2int(data_byte, byte_order))
+            time.sleep(1.0)
 
     def diag(self):
         pprint.pprint(vars(self))
