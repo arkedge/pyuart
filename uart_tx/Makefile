@@ -1,5 +1,9 @@
+TARGET=uart_tx.py
+
 all:
 
+run:
+	./${TARGET}
 
 chmod:
 	sudo chmod 666 /dev/ttyUSB0
