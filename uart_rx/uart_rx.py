@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-07 18:46:46 hamada>
+#Time-stamp: <2023-05-07 20:36:23 hamada>
 import serial
 import time
 import pprint
@@ -46,15 +46,20 @@ if __name__ == '__main__':
 
     uart_device = serial.Serial(uart_settings['dev'], uart_settings['baudrate'], timeout=uart_settings['timeout'])
 
-
     cnt = 0
-    while True:
+    while False:
         #str = uart_device.readline().strip().decode("utf-8")
         str = uart_device.readline().strip()
         print(type(str))
         print(str)
         time.sleep(0.1)
         cnt = cnt + 1
+
+
+    n_byte = 1048576
+    data_rx = uart_device.read(n_byte)
+    print(type(data_rx))
+    print(len(data_rx))
 
     uart_device.close()
 

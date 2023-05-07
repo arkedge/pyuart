@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-05 16:22:28 hamada>
+#Time-stamp: <2023-05-07 20:32:37 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -39,6 +39,23 @@ def convArrayByte2Int(array_byte):
         _x = struct.unpack('1B', _b)
         array_int.append(_x[0])
     return array_int
+
+def readFileBin(filename = 'dump.1M.img'):
+    with open(filename, mode='rb') as f:
+        _content = f.read() # list of Integers, not Bytes !
+    print ('file: %s, size: %d-bytes' % (filename, len(_content)))
+
+    # conversion: int -> byte
+    _array_bytes = []
+    for _ci in _content:
+        _array_bytes.append(bytes([_ci]))
+
+    return _array_bytes
+
+def writeFileBin(filename = 'tmp.img', data = []):
+    with open(filename, mode='wb') as f:
+        for cb in data:
+            f.write(cb)
 
 byte_order = 'big'
 
