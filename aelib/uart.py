@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-07 20:32:37 hamada>
+#Time-stamp: <2023-05-08 00:19:21 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -101,6 +101,25 @@ class uart:
                 print('=>', end='', flush=True)
 
         print("\n: End UART-Tx")
+
+    def testRx_binfiletransfer(self, filename = '/tmp/recv.img', n_byte = 1048576):
+        progress_tick = int(n_byte / 20)
+        data_rx = []
+        data_rx_byte = []
+        for i in range(n_byte):
+            rx_byte = self.uart_device.read(1)
+            rx_int = struct.unpack('1B', rx_byte)[0]
+            data_rx.append(rx_int)
+            data_rx_byte.append(rx_byte)
+
+            if 0 == i % progress_tick:
+                print ('=>', end = '', flush = True)
+
+        writeFileBin(filename = filename, data = data_rx_byte)
+
+        print("\n: End UART-Rx")
+
+
 
     def diag(self):
         pprint.pprint(vars(self))
