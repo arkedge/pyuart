@@ -6,6 +6,10 @@ run:
 	./${TARGET}
 
 
+gen.1M:
+	dd if=/dev/urandom of=/tmp/dump.img bs=1024k count=1
+	shasum -a 512 /tmp/dump.img
+
 gen.8M:
 	dd if=/dev/urandom of=/tmp/dump.img bs=1024k count=8
 	shasum -a 512 /tmp/dump.img
