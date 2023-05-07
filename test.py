@@ -10,7 +10,7 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    u0.testTx512octet()
+    u0.testTx_binfiletransfer()
 
     u0.close()
 
