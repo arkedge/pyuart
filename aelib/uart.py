@@ -40,7 +40,7 @@ def convArrayByte2Int(array_byte):
         array_int.append(_x[0])
     return array_int
 
-def readFileBin(filename = 'dump.1M.img'):
+def readFileBin(filename = '__dump__.img'):
     with open(filename, mode='rb') as f:
         _content = f.read() # list of Integers, not Bytes !
     print ('file: %s, size: %d-bytes' % (filename, len(_content)))
@@ -89,8 +89,8 @@ class uart:
             print("0x%x" % byte2int(data_byte, byte_order))
             time.sleep(1.0)
 
-    def testTx_binfiletransfer(self):
-        data_tx = readFileBin('/tmp/dump.img')
+    def testTx_binfiletransfer(self, filename = '/tmp/tran.img'):
+        data_tx = readFileBin(filename = filename)
 
         n_byte = len(data_tx)
         progress_tick = int(n_byte / 20)
