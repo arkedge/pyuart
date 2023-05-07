@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-03 15:59:51 hamada>
+#Time-stamp: <2023-05-05 00:54:04 hamada>
 
 import time
 
@@ -11,8 +11,10 @@ if __name__ == '__main__':
     u0.diag()
 
     while True:
-        u0.testTx()
-        time.sleep(0.777)
+        #data = 0x4675636b2075206675636b2075206675636b2075200D0A
+        data = 0x6362610D0A
+        u0.testTx(data)
+        #time.sleep(0.777)
 
     u0.close()
 

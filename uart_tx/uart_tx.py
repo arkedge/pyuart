@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-02 17:03:29 hamada>
+#Time-stamp: <2023-05-03 14:19:31 hamada>
 
 import serial
 import time
@@ -19,7 +19,7 @@ byte_order = 'big'
 
 uart_settings = {
     'dev': '/dev/ttyUSB0',
-    'baudrate': 9600, #115200, #9600, # 9600, 115200
+    'baudrate': 115200, #9600, # 9600, 115200
     'timeout': 10,
     }
 
@@ -45,19 +45,29 @@ print ("0x%x"%data)
 #data = 0x31415926535897932384
 #data = 0x314159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808
 
-data = 0x6675636b4075 # fuck u
-
-time.sleep(1)
-
+#data = 0x6675636b4075 # fuck u
+data = 0x610D0A # A<CR><LF>
+data = 0x6675636b40750D0A # A<CR><LF>
 #data = data.to_bytes(n_octet, byte_order)
+data = 0x6675636b20750D0A # fuck u<CR><LF>
+data = 0x61
+data = 0x4675636b2075206675636b2075206675636b2075200D0A
+
 
 cnt = 0
+
 while True:
     data_byte = int2byte(data, byte_order)
+    #data_byte = binascii.hexlify(b"hello\n")
     uart_device.write(data_byte)
     print("0x%x" % byte2int(data_byte, byte_order))
     time.sleep(1.0)
     cnt = cnt + 1
+    '''
+    data = data + 1
+    if data > 0x7d00:
+        data = 0x6101
+    '''
 
 uart_device.close()
 

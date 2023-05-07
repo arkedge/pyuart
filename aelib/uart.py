@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-04 21:58:35 hamada>
+#Time-stamp: <2023-05-05 16:22:28 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -41,7 +41,9 @@ class uart:
         self.uart_device.close()
 
     def testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
+        _eot = 0x04
         data = data << 16 | 0x0D0A # <CR><LF>
+        data = 0x6465
         data_byte = int2byte(data, byte_order)
         self.uart_device.write(data_byte)
         if False:
