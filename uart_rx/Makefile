@@ -6,6 +6,10 @@ run:
 	./${TARGET}
 
 
+gen:
+	dd if=/dev/urandom of=dump.1M.img bs=1024 count=1024
+	shasum -a 512 *.img
+
 screen:
 	screen /dev/ttyS0 115200
 
