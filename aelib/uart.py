@@ -89,7 +89,7 @@ class uart:
             print("0x%x" % byte2int(data_byte, byte_order))
             time.sleep(1.0)
 
-    def testTx512octet(self):
+    def testTx_binfiletransfer(self):
         data_tx = readFileBin('/tmp/dump.img')
 
         n_byte = len(data_tx)
