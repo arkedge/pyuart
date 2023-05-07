@@ -3,6 +3,7 @@
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
+import struct
 import serial
 import time
 import math
@@ -17,6 +18,27 @@ def int2byte(i_int, i_endian = 'big'):
     n_octet = math.ceil(math.log2(i_int)/8.0)
     print ("n_octet: %d" % n_octet)
     return i_int.to_bytes(n_octet, i_endian)
+
+'''
+array conversion: int -> byte
+    array is list in python
+'''
+def convArrayInt2Byte(array_int):
+    array_byte = []
+    for data_i in array_int:
+        array_byte.append(bytes([0xff & data_i]))
+    return array_byte
+
+'''
+array conversion: byte -> int
+    array is list in python
+'''
+def convArrayByte2Int(array_byte):
+    array_int = []
+    for _b in array_byte:
+        _x = struct.unpack('1B', _b)
+        array_int.append(_x[0])
+    return array_int
 
 byte_order = 'big'
 
@@ -49,6 +71,27 @@ class uart:
         if False:
             print("0x%x" % byte2int(data_byte, byte_order))
             time.sleep(1.0)
+
+    def testTx512octet(self):
+        n_byte = 10 # 512
+        msg_i = []
+        for i in range(n_byte):
+            msg_i.append(i)
+
+        msg_ba = convArrayInt2Byte(msg_i)
+
+        for _b in msg_ba:
+            self.uart_device.write(_b)
+
+        print("----------------")
+        '''
+        msg_i2 = convArrayByte2Int(msg_ba)
+        pprint.pprint(msg_i)
+        pprint.pprint(msg_ba)
+        pprint.pprint(msg_i2)
+        '''
+
+        time.sleep(5)
 
     def diag(self):
         pprint.pprint(vars(self))

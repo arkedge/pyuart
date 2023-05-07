@@ -6,15 +6,11 @@ import time
 from aelib import uart
 
 if __name__ == '__main__':
-    u0 = uart.uart()
+    u0 = uart.uart(dev='/dev/ttyS0')
     u0.open()
     u0.diag()
 
-    while True:
-        #data = 0x4675636b2075206675636b2075206675636b2075200D0A
-        data = 0x6362610D0A
-        u0.testTx(data)
-        #time.sleep(0.777)
+    u0.testTx512octet()
 
     u0.close()
 
