@@ -97,7 +97,7 @@ class uart:
 
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
-            if 0 == (i % progres_tick):
+            if 0 == (i % progress_tick):
                 print('=>', end='', flush=True)
 
         print("\n: End UART-Tx")
