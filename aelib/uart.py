@@ -90,15 +90,17 @@ class uart:
             time.sleep(1.0)
 
     def testTx512octet(self):
-        data_tx = readFileBin('/tmp/dump.1M.img')
+        data_tx = readFileBin('/tmp/dump.img')
 
         n_byte = len(data_tx)
+        progress_tick = int(n_byte / 20)
 
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
-            print('%d: 0x%X' % (i, struct.unpack('1B', _b)[0]))
+            if 0 == (i % progres_tick):
+                print('=>', end='', flush=True)
 
-        print("----------------> End UART-Tx")
+        print("\n: End UART-Tx")
 
     def diag(self):
         pprint.pprint(vars(self))
