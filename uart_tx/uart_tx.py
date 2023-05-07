@@ -18,7 +18,7 @@ def int2byte(i_int, i_endian = 'big'):
 byte_order = 'big'
 
 uart_settings = {
-    'dev': '/dev/ttyUSB0',
+    'dev': '/dev/ttyS0', #'/dev/ttyUSB0',
     'baudrate': 115200, #9600, # 9600, 115200
     'timeout': 10,
     }
@@ -53,14 +53,17 @@ data = 0x6675636b20750D0A # fuck u<CR><LF>
 data = 0x61
 data = 0x4675636b2075206675636b2075206675636b2075200D0A
 
-
 cnt = 0
+
+b = [0x61, 0x62, 0x63, 0x0D, 0x0A]
 
 while True:
     data_byte = int2byte(data, byte_order)
     #data_byte = binascii.hexlify(b"hello\n")
+    data_byte = bytes(b)
     uart_device.write(data_byte)
     print("0x%x" % byte2int(data_byte, byte_order))
+    print("len=%d" % len(data_byte))
     time.sleep(1.0)
     cnt = cnt + 1
     '''
