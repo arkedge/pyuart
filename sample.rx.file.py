@@ -10,12 +10,16 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
+    u0.rx_file(filename = './recv.img~', n_byte = 1048576)
+
+    '''
     while True:
         rx_data = u0.rx()
         if True == rx_data['is_valid']:
             print ('0x%02X, %s' % (rx_data['int'], rx_data['byte']))
         else:
             time.sleep (1)
+    '''
 
     u0.close()
 

@@ -10,11 +10,12 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    # -----------------------------------------
-    #  send data from 'a' to 'z' in ASCII code
-    # -----------------------------------------
-    for i in range(0x61, 0x7b):
+    u0.tx_file(filename = '/tmp/dump.200M.img')
+
+    '''
+    for i in range(100):
         u0.tx(i)
+    '''
 
     u0.close()
 
