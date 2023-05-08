@@ -79,6 +79,28 @@ class uart:
     def close(self):
         self.uart_device.close()
 
+    def rx(self):
+        
+        rx_byte = self.uart_device.read(1)
+
+        ret = {
+            'byte': rx_byte,
+            'int': 0,
+            'isValid': False,
+        }
+
+        if len(rx_byte) > 0:
+            rx_int = struct.unpack('1B', rx_byte)[0]
+            ret = {
+                'byte': rx_byte,
+                'int': rx_int,
+                'is_valid': True,
+            }
+
+        return ret
+
+
+
     def testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
         data = data << 16 | 0x0D0A # <CR><LF>
