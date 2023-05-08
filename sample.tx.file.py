@@ -12,10 +12,5 @@ if __name__ == '__main__':
 
     u0.tx_file(filename = '/tmp/dump.200M.img')
 
-    '''
-    for i in range(100):
-        u0.tx(i)
-    '''
-
     u0.close()
 
