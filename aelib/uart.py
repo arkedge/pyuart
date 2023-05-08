@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-08 00:19:21 hamada>
+#Time-stamp: <2023-05-08 21:14:59 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -115,7 +115,7 @@ class uart:
         data_tx = readFileBin(filename = filename)
 
         n_byte = len(data_tx)
-        progress_tick = int(n_byte / 20 + 0.5)
+        progress_tick = int(math.ceil(n_byte / 20.0))
 
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
@@ -125,7 +125,7 @@ class uart:
         print("\n: End UART-Tx")
 
     def rx_file(self, filename = '/tmp/recv.img', n_byte = 1048576):
-        progress_tick = int(n_byte / 20 + 0.5)
+        progress_tick = int(math.ceil(n_byte / 20.0))
         data_rx = []
         data_rx_byte = []
         for i in range(n_byte):
