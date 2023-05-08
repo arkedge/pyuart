@@ -2,11 +2,11 @@
 
 ## 概要
 
-PC/RaspberryPiのUART線から出てくる生信号を直接ロジアナで観測するために作成したコードたちです。
-つまりUARTプロトコルを電圧の上下のレベルでリバースエンジニアリングするために使っています。
+PC/RaspberryPiのUART線から出てくる生信号をTx/Rxするためのaelib/uartモジュールに格上げしました。
 
-FPGA-UARTデバッグが必要になった時には、PC/RaspberryPiをFPGA対向デバイスとして使えると良いでしょう。
-
+UARTを```from aelib import uart```で手軽にpythonからTx/Rx操作できます。
+FPGA-UARTデバッグやAddnics STRxのUART設定用プログラムが必要になった時には重宝するはずです。
+PC/RaspberryPiにubuntuを入れた環境で使いましょう。
 
 
 ## 動作環境
@@ -19,7 +19,21 @@ FPGA-UARTデバッグが必要になった時には、PC/RaspberryPiをFPGA対�
 - QinHeng Electronics CH340 serial converter
 
 
+## Installation
+
+```
+make setup
+make chmod
+```
+
+```make chmod```は環境依存です。/dev/serial/* やlsusbなど駆使してUSB-TTL converterデバイスを探しましょう。 
+詳細はMakefileを読むと理解の助けになるでしょう。
+
+
 ## サンプル
+
+```aelib/uart```モジュールの操作方法のサンプルコードを以下にメモしておきます。
+このサンプルを見るだけで動かすことができるはずですが、詳細な説明は後日記載する予定です。
 
 
 ### 例1: 1 octetづつTx(送信)したい場合
