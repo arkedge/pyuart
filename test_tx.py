@@ -6,11 +6,11 @@ import time
 from aelib import uart
 
 if __name__ == '__main__':
-    u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+    u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 15)
     u0.open()
     u0.diag()
 
-    #u0.tx_file(filename = '/tmp/dump.400M.img')
+    u0.tx_file(filename = '/tmp/dump.200M.img')
 
     for i in range(100):
         u0.tx(i)
