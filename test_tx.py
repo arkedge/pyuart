@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-05 00:54:04 hamada>
+#Time-stamp: <2023-05-08 21:08:46 hamada>
 
 import time
 
@@ -10,7 +10,7 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    u0.testTx_binfiletransfer(filename = '/tmp/dump.1M.img')
+    u0.tx_file(filename = '/tmp/dump.400M.img')
 
     u0.close()
 
