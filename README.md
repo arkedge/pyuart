@@ -19,6 +19,78 @@ FPGA-UARTデバッグが必要になった時には、PC/RaspberryPiをFPGA対�
 - QinHeng Electronics CH340 serial converter
 
 
+## サンプル
+
+
+### 例1: 1 octetづつTx(送信)したい場合
+
+```
+from aelib import uart
+
+u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0.open()
+
+u0.tx(1)
+u0.tx(2)
+u0.tx(77)
+
+u0.close()
+
+```
+
+### 例2: 1 octetづつRx(受信)したい場合
+
+```
+import time
+from aelib import uart
+
+u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
+u0.open()
+
+while True:
+    rx_data = u0.rx()
+    if True == rx_data['is_valid']:
+        print ('0x%02X, %s' % (rx_data['int'], rx_data['byte']))
+    else:
+        time.sleep (1)
+
+u0.close()
+```
+
+### 例3: ファイルをTx(送信)したい場合
+
+```
+from aelib import uart
+
+u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0.open()
+
+u0.tx_file(filename = '/tmp/file.bin')
+
+u0.close()
+
+```
+
+### 例4: ファイルをRx(受信)したい場合
+
+```
+from aelib import uart
+
+u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0.open()
+
+u0.rx_file(filename = './recv.bin', n_byte = 1048576)
+
+u0.close()
+
+```
+
+**注意**
+
+ファイルのRx(受信)では事前に受信したいファイルのサイズをn_byteで指定する必要があります。
+上記の例では ```n_byte = 1048576```を指定することで1Mbyteのファイルを受信することを指定しています。
+
+
 ## 注意
 
 Ubuntu 22ではCH341チップを使ったUSB-serialコンバーターはそのままでは動きません。

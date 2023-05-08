@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-08 21:14:59 hamada>
+#Time-stamp: <2023-05-08 21:51:27 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -79,8 +79,19 @@ class uart:
     def close(self):
         self.uart_device.close()
 
+    '''
+    tx: transfer 1 octet
+    '''
+    def tx(self, x_int):
+        _x_byte = bytes([0xFF & x_int])
+        return self.uart_device.write(_x_byte)
+
+
+    '''
+    rx: receive 1 octet
+    '''
     def rx(self):
-        
+
         rx_byte = self.uart_device.read(1)
 
         ret = {
@@ -100,8 +111,7 @@ class uart:
         return ret
 
 
-
-    def testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
+    def __testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
         data = data << 16 | 0x0D0A # <CR><LF>
         data = 0x6465
