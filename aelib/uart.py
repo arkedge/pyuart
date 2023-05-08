@@ -79,6 +79,28 @@ class uart:
     def close(self):
         self.uart_device.close()
 
+    def rx(self):
+        
+        rx_byte = self.uart_device.read(1)
+
+        ret = {
+            'byte': rx_byte,
+            'int': 0,
+            'isValid': False,
+        }
+
+        if len(rx_byte) > 0:
+            rx_int = struct.unpack('1B', rx_byte)[0]
+            ret = {
+                'byte': rx_byte,
+                'int': rx_int,
+                'is_valid': True,
+            }
+
+        return ret
+
+
+
     def testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
         data = data << 16 | 0x0D0A # <CR><LF>
@@ -89,11 +111,11 @@ class uart:
             print("0x%x" % byte2int(data_byte, byte_order))
             time.sleep(1.0)
 
-    def testTx_binfiletransfer(self, filename = '/tmp/tran.img'):
+    def tx_file(self, filename = '/tmp/tran.img'):
         data_tx = readFileBin(filename = filename)
 
         n_byte = len(data_tx)
-        progress_tick = int(n_byte / 20)
+        progress_tick = int(n_byte / 20 + 0.5)
 
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
@@ -102,8 +124,8 @@ class uart:
 
         print("\n: End UART-Tx")
 
-    def testRx_binfiletransfer(self, filename = '/tmp/recv.img', n_byte = 1048576):
-        progress_tick = int(n_byte / 20)
+    def rx_file(self, filename = '/tmp/recv.img', n_byte = 1048576):
+        progress_tick = int(n_byte / 20 + 0.5)
         data_rx = []
         data_rx_byte = []
         for i in range(n_byte):
