@@ -10,10 +10,9 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    if False:
-        u0.testRx_binfiletransfer(filename = './recv.img~', n_byte = 997)
+    u0.rx_file(filename = './recv.img~', n_byte = 47)
 
-    while True:
+    while False: #True:
         rx_data = u0.rx()
         if True == rx_data['is_valid']:
             print ('0x%02X, %s' % (rx_data['int'], rx_data['byte']))

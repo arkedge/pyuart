@@ -111,11 +111,11 @@ class uart:
             print("0x%x" % byte2int(data_byte, byte_order))
             time.sleep(1.0)
 
-    def testTx_binfiletransfer(self, filename = '/tmp/tran.img'):
+    def tx_file(self, filename = '/tmp/tran.img'):
         data_tx = readFileBin(filename = filename)
 
         n_byte = len(data_tx)
-        progress_tick = int(n_byte / 20)
+        progress_tick = int(n_byte / 20 + 0.5)
 
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
@@ -124,8 +124,8 @@ class uart:
 
         print("\n: End UART-Tx")
 
-    def testRx_binfiletransfer(self, filename = '/tmp/recv.img', n_byte = 1048576):
-        progress_tick = int(n_byte / 20)
+    def rx_file(self, filename = '/tmp/recv.img', n_byte = 1048576):
+        progress_tick = int(n_byte / 20 + 0.5)
         data_rx = []
         data_rx_byte = []
         for i in range(n_byte):
