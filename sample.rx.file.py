@@ -10,7 +10,10 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    u0.rx_file(filename = './recv.img', n_byte = 0x1<<20)
+    file_size = 0x1 << 20 #   1 MB
+    file_size = 0x1 << 28 # 256 MB
+
+    u0.rx_file(filename = './recv.img', n_byte = file_size)
 
     u0.close()
 

@@ -10,7 +10,7 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    u0.tx_file(filename = '/tmp/dump.200M.img')
+    u0.tx_file(filename = './dump.256M.img')
 
     u0.close()
 
