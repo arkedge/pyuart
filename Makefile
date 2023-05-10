@@ -5,6 +5,9 @@ all:
 run:
 	./${TARGET}
 
+mpirun:
+	mpirun -np 11 --oversubscribe mpi.tx.py
+
 gen.8M:
 	dd if=/dev/urandom of=/tmp/dump.img bs=1024k count=8
 	shasum -a 512 /tmp/dump.img
