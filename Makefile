@@ -13,9 +13,10 @@ screen:
 	screen /dev/ttyS0 115200
 
 chmod: 
-	sudo chmod 666 /dev/ttyAMA0
-	sudo chmod 666 /dev/ttyS0
-	sudo chmod 666 /dev/ttyUSB0
+	sudo chmod 666 --silent /dev/ttyUSB0
+	sudo chmod 666 --silent /dev/ttyAMA0
+	sudo chmod 666 --silent /dev/ttyS0
+
 
 setup:
 	sudo apt remove brltty
