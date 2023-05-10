@@ -6,7 +6,7 @@ run:
 	./${TARGET}
 
 mpirun:
-	mpirun -np 11 --oversubscribe mpi.tx.py
+	mpirun -np 4 --oversubscribe mpi.tx.py
 
 gen.8M:
 	dd if=/dev/urandom of=/tmp/dump.img bs=1024k count=8
@@ -15,8 +15,8 @@ gen.8M:
 screen:
 	screen /dev/ttyS0 115200
 
-chmod: 
-	sudo chmod 666 --silent /dev/ttyUSB0
+chmod:
+	sudo chmod 666 --silent /dev/ttyUSB*
 	sudo chmod 666 --silent /dev/ttyAMA0
 	sudo chmod 666 --silent /dev/ttyS0
 
