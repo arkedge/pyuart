@@ -18,6 +18,9 @@ PC/RaspberryPiにubuntuを入れた環境で使いましょう。
 - Python 3.10.6
 - QinHeng Electronics CH340 serial converter
 
+## 前提
+
+```1-Byte == 1-Octet == 8-bit```
 
 ## Installation
 
@@ -55,7 +58,6 @@ u0.close()
 ### 例2: 1 octetづつRx(受信)したい場合
 
 ```:test_rx.py
-import time
 from aelib import uart
 
 u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
@@ -99,7 +101,7 @@ u0.close()
 **ファイルRxでの注意事項**
 
 UARTを使ったデータ通信では受け取るファイルのサイズは上位プロトコル層で定義しておかなければファイルサイズを事前に知ることができません。
-そのため本モジュールを使ったファイルのRx(受信)については、Rxプログラム実行前に受信したいファイルのサイズをn_byteで事前に指定する必要があります。
+そのため上位プロトコルを定義していない本モジュールでは、ファイルのRx(受信)実行時に受信ファイルサイズをn_byteで指定する必要があります。
 上記のサンプル例では ```n_byte = 1048576```を指定しています。これは1MB(1048576 Byte)のファイルを受信することを指定しています。
 
 (なお、この文章では```1 octet = 1 byte```を仮定しています)
@@ -110,7 +112,6 @@ UARTを使ったデータ通信では受け取るファイルのサイズは上�
 
 ```mpi.tx.py
 #!/usr/bin/env python3
-import time
 from mpi4py import MPI
 from aelib import uart
 
