@@ -20,7 +20,7 @@ PC/RaspberryPiにubuntuを入れた環境で使いましょう。
 
 ## 前提
 
-```1-Byte == 1-Octet == 8-bit```
+```1 Byte == 1 Octet == 8 bit```
 
 ## Installation
 
