@@ -38,7 +38,7 @@ make chmod
 
 ### 例1: 1 octetづつTx(送信)したい場合
 
-```
+```:test_tx.py
 from aelib import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
@@ -54,7 +54,7 @@ u0.close()
 
 ### 例2: 1 octetづつRx(受信)したい場合
 
-```
+```:test_rx.py
 import time
 from aelib import uart
 
@@ -73,7 +73,7 @@ u0.close()
 
 ### 例3: ファイルをTx(送信)したい場合
 
-```
+```:sample.tx.file.py
 from aelib import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
@@ -87,7 +87,7 @@ u0.close()
 
 ### 例4: ファイルをRx(受信)したい場合
 
-```
+```sample.rx.file.py
 from aelib import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
