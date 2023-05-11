@@ -108,6 +108,39 @@ UARTを使ったデータ通信では受け取るファイルのサイズは上�
 (なお、この文章では```1 octet = 1 byte```を仮定しています)
 
 
+
+### 例6: 並列Txの実行 (MPI利用)
+
+```mpi.tx.py
+#!/usr/bin/env python3
+import time
+from mpi4py import MPI
+from aelib import uart
+
+comm = MPI.COMM_WORLD
+proc_id = comm.Get_rank()
+nproc = comm.Get_size()
+hostname = MPI.Get_processor_name()
+
+devfile = "/dev/ttyUSB%d" % proc_id
+print(devfile, flush=True)
+
+u0 = uart.uart(dev=devfile, baudrate = 115200, timeout = 15)
+u0.open()
+u0.tx(123)
+
+u0.close()
+
+```
+
+並列実行は```make mpirun```や以下のようにmpirunコマンドを使います。
+```
+ mpirun -np 4 --oversubscribe mpi.tx.py
+```
+
+
+
+
 ## 注意
 
 Ubuntu 22ではCH341チップを使ったUSB-serialコンバーターはそのままでは動きません。
