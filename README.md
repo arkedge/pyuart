@@ -61,14 +61,11 @@ from aelib import uart
 u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
 u0.open()
 
-while True:
-    rx_data = u0.rx()
-    if True == rx_data['is_valid']:
-        print ('0x%02X, %s' % (rx_data['int'], rx_data['byte']))
-    else:
-        time.sleep (1)
+for data in u0.rx_generator():
+    print (data['int'], data['byte'])
 
 u0.close()
+
 ```
 
 ### 例3: ファイルをTx(送信)したい場合

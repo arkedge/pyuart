@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-08 21:51:27 hamada>
+#Time-stamp: <2023-05-11 16:01:36 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -110,6 +110,15 @@ class uart:
 
         return ret
 
+    '''
+    rx_generator: receive N octets forerver
+    '''
+    def rx_generator(self):
+
+        while True:
+            rx_data = self.rx()
+            if True == rx_data['is_valid']:
+                yield rx_data
 
     def __testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
