@@ -2,12 +2,10 @@
 
 ## 概要
 
-PC/RaspberryPiのUART線から出てくる生信号をTx/Rxするためのaelib/uartモジュールに格上げしました。
-
-UARTを```from aelib import uart```で手軽にpythonからTx/Rx操作できます。
-FPGA-UARTデバッグやAddnics STRxのUART設定用プログラムが必要になった時には重宝するはずです。
-PC/RaspberryPiにubuntuを入れた環境で使いましょう。
-
+UARTデバッグをpythonスクリプトで行うためのモジュールです。これまで
+Tera-termやArduino IDEコンソールなどでライトウェイトにUARTデバッグをし
+ていた人が、リモートデバッグ環境を構築したり、並列UART高負荷耐久テスト
+等々、もう少し突っ込んだUARTデバッグをしたい時に効果を発揮するはずです。
 
 ## 動作環境
 
