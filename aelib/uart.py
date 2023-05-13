@@ -116,7 +116,7 @@ class uart:
     def rx(self):
 
         while True:
-            rx_data = self.rx__simple()
+            rx_data = self.rx_simple()
             if True == rx_data['is_valid']:
                 yield rx_data['int']
 

@@ -12,7 +12,7 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    for v in u0.rx_generator():
+    for v in u0.rx():
         print ('0x%02X' % (v), flush=True)
 
     u0.close()
