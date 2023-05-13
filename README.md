@@ -62,7 +62,7 @@ u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
 u0.open()
 
 for data in u0.rx():
-    print (data['int'], data['byte'])
+    print (data)
 
 u0.close()
 
