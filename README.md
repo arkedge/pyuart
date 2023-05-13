@@ -61,12 +61,14 @@ from aelib import uart
 u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
 u0.open()
 
-for data in u0.rx_generator():
+for data in u0.rx():
     print (data['int'], data['byte'])
 
 u0.close()
 
 ```
+
+※: rx()メソッドはジェネレータです。
 
 ### 例3: ファイルをTx(送信)したい場合
 

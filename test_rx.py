@@ -12,8 +12,8 @@ if __name__ == '__main__':
     u0.open()
     u0.diag()
 
-    for rx_data in u0.rx_generator():
-        print ('0x%02X, %s' % (rx_data['int'], rx_data['byte']), flush=True)
+    for v in u0.rx_generator():
+        print ('0x%02X' % (v), flush=True)
 
     u0.close()
 

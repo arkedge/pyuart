@@ -88,9 +88,9 @@ class uart:
 
 
     '''
-    rx: receive 1 octet
+    rx_simple: receive 1 octet
     '''
-    def rx(self):
+    def rx_simple(self):
 
         rx_byte = self.uart_device.read(1)
 
@@ -113,12 +113,12 @@ class uart:
     '''
     rx_generator: receive N octets forerver
     '''
-    def rx_generator(self):
+    def rx(self):
 
         while True:
-            rx_data = self.rx()
+            rx_data = self.rx__simple()
             if True == rx_data['is_valid']:
-                yield rx_data
+                yield rx_data['int']
 
     def __testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
