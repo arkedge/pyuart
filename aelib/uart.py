@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-16 10:54:22 hamada>
+#Time-stamp: <2023-05-16 10:59:17 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -122,7 +122,7 @@ class uart:
         while True:
             rx_data = self.rx_primitive()
             if True == rx_data['is_valid']:
-                yield rx_data
+                yield rx_data['int']
 
     def __testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
