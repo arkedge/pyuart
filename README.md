@@ -1,4 +1,4 @@
-# UART-RTx for PC
+# pyuart
 
 ## 概要
 
@@ -30,6 +30,11 @@ Tera-termやArduino IDEコンソールなどでライトウェイトにUARTデ�
 ```
 make setup
 make chmod
+```
+
+OSS公開後には以下のインストール方法が使える予定
+```
+pip install pyuart
 ```
 
 ```make chmod```は環境依存です。/dev/serial/* やlsusbなど駆使してUSB-TTL converterデバイスを探しましょう。 
