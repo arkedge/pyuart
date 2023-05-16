@@ -10,11 +10,16 @@ Tera-termやArduino IDEコンソールなどでライトウェイトにUARTデ�
 ## 動作環境
 
 動作確認済みの実機環境
+- Python 3.10.6
 - PC
   - CPU: Intel Core i7-12700
   - OS: Ubuntu 22.04.2 LTS
-- Python 3.10.6
-- QinHeng Electronics CH340 serial converter
+- Raspberry Pi 4 Model B Rev 1.5
+  - CPU: BCM2835
+  - OS: Ubuntu 22.04.2 LTS
+- USB-TTL converter
+  - QinHeng Electronics CH340 serial converter
+  - Future Technology Devices International, Ltd FT232 Serial (UART) IC
 
 ## 前提
 
