@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-11 16:47:18 hamada>
-
-import time
+#Time-stamp: <2023-05-16 10:45:22 hamada>
 
 from aelib import uart
-
-
 
 if __name__ == '__main__':
     u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 240)

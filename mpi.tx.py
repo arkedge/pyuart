@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-10 09:58:58 hamada>
+#Time-stamp: <2023-05-16 10:45:41 hamada>
 
-import time
 from mpi4py import MPI
 from aelib import uart
 
