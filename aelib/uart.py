@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-16 09:47:44 hamada>
+#Time-stamp: <2023-05-16 10:54:22 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -92,9 +92,9 @@ class uart:
 
 
     '''
-    rx: receive 1 octet
+    rx_primitive: receive 1 octet
     '''
-    def rx(self):
+    def rx_primitive(self):
 
         rx_byte = self.uart_device.read(1)
 
@@ -115,12 +115,12 @@ class uart:
         return ret
 
     '''
-    rx_generator: receive N octets forerver
+    rx: receive N octets forerver
     '''
-    def rx_generator(self):
+    def rx(self):
 
         while True:
-            rx_data = self.rx()
+            rx_data = self.rx_primitive()
             if True == rx_data['is_valid']:
                 yield rx_data
 
