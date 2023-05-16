@@ -1,4 +1,4 @@
-TARGET=test_tx.py
+TARGET = sample.tx.py
 
 all:
 
