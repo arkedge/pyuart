@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-16 10:59:17 hamada>
 
-__author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
+__author__ = "ArkEdge Space Inc."
 
 import struct
 import serial

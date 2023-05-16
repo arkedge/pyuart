@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-08 00:17:07 hamada>
-
-import time
 import argparse
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "A time estimation tool for UART data/file transters")

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-16 10:44:45 hamada>
 
 from aelib import uart
 

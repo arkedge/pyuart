@@ -171,7 +171,7 @@ a braille e-reader, however unsure if it could cause errors later on.
 ### ubuntu22 PCでの/dev/serialの一例
 
 ```
-hamada@ci01:~/git/pyuart$ ls -l /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+arkedge@ci01:~/git/pyuart$ ls -l /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 lrwxrwxrwx 1 root root 13  4月 30 14:58 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 -> ../../ttyUSB0
 ```
 

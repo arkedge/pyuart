@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-16 10:45:22 hamada>
 
 from aelib import uart
 
@@ -9,7 +8,7 @@ if __name__ == '__main__':
     u0.diag()
 
     for v in u0.rx():
-        print ('0x%02X' % (v), flush=True)
+        print ('%02X ' % (v), flush=True, end='')
 
     u0.close()
 
