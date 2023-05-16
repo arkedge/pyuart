@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-11 16:01:36 hamada>
+#Time-stamp: <2023-05-16 09:47:44 hamada>
 
 __author__ = "Tsuyoshi Hamada <hamada@arkedgespace.com>"
 
@@ -9,6 +9,10 @@ import time
 import math
 import binascii
 import pprint
+
+
+def get_baudrate_list():
+    return [1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 460800, 500000, 576000, 921600, 1000000, 11520000, 1500000, 20000]
 
 
 def byte2int(i_byte, i_endian = 'big'):
@@ -88,9 +92,9 @@ class uart:
 
 
     '''
-    rx_simple: receive 1 octet
+    rx: receive 1 octet
     '''
-    def rx_simple(self):
+    def rx(self):
 
         rx_byte = self.uart_device.read(1)
 
@@ -113,12 +117,12 @@ class uart:
     '''
     rx_generator: receive N octets forerver
     '''
-    def rx(self):
+    def rx_generator(self):
 
         while True:
-            rx_data = self.rx_simple()
+            rx_data = self.rx()
             if True == rx_data['is_valid']:
-                yield rx_data['int']
+                yield rx_data
 
     def __testTx(self, data=0x6162636465666768696a6b6c6d6e6f707172737475767778797a):
         _eot = 0x04
@@ -136,12 +140,24 @@ class uart:
         n_byte = len(data_tx)
         progress_tick = int(math.ceil(n_byte / 20.0))
 
+        t0 = time.time()
         for i, _b in enumerate(data_tx):
             self.uart_device.write(_b)
             if 0 == (i % progress_tick):
                 print('=>', end='', flush=True)
+        t = time.time() - t0
+        bw = n_byte/t
+        print("")
+        print(": End UART-Tx")
+        print("--------------------------------")
+        print("BandWidth: %f KByte/sec" % (bw/1024.))
+        print("--------------------------------")
+        return {
+            'n_byte': n_byte,
+            'wallclocktime': t,
+            'bandwidth': bw,
+            }
 
-        print("\n: End UART-Tx")
 
     def rx_file(self, filename = '/tmp/recv.img', n_byte = 1048576):
         progress_tick = int(math.ceil(n_byte / 20.0))

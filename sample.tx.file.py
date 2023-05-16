@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-#Time-stamp: <2023-05-08 21:52:05 hamada>
+#Time-stamp: <2023-05-16 09:59:22 hamada>
 
 import time
 
 from aelib import uart
 
 if __name__ == '__main__':
-    u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 15)
+    u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
     u0.open()
     u0.diag()
+    print (uart.get_baudrate_list())
 
-    u0.tx_file(filename = './dump.256M.img')
+    res = u0.tx_file(filename = './dump.256M.img')
+    print (res)
 
     u0.close()
 
