@@ -28,29 +28,23 @@ Tera-termやArduino IDEコンソールなどでライトウェイトにUARTデ�
 ## Installation
 
 ```
-make setup
-make chmod
-```
-
-OSS公開後には以下のインストール方法が使える予定
-```
 pip install pyuart
+sudo chmod 666 /dev/ttyUSB0
 ```
 
-```make chmod```は環境依存です。/dev/serial/* やlsusbなど駆使してUSB-TTL converterデバイスを探しましょう。 
-詳細はMakefileを読むと理解の助けになるでしょう。
+上記例のデバイスファイル名 ```/dev/ttyUSB0```は環境依存です。ご自身の環境に対応したデバイスファイル名をご指定ください。
 
 
 ## サンプル
 
-```aelib/uart```モジュールの操作方法のサンプルコードを以下にメモしておきます。
+```pyuart```モジュールの操作方法のサンプルコードを以下にメモしておきます。
 このサンプルを見るだけで動かすことができるはずですが、詳細な説明は後日記載する予定です。
 
 
 ### 例1: 1 octetづつTx(送信)したい場合
 
 ```:test_tx.py
-from aelib import uart
+from pyuart import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
@@ -66,7 +60,7 @@ u0.close()
 ### 例2: 1 octetづつRx(受信)したい場合
 
 ```:test_rx.py
-from aelib import uart
+from pyuart import uart
 
 u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
 u0.open()
@@ -83,7 +77,7 @@ u0.close()
 ### 例3: ファイルをTx(送信)したい場合
 
 ```:sample.tx.file.py
-from aelib import uart
+from pyuart import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
@@ -97,7 +91,7 @@ u0.close()
 ### 例4: ファイルをRx(受信)したい場合
 
 ```sample.rx.file.py
-from aelib import uart
+from pyuart import uart
 
 u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
@@ -123,7 +117,7 @@ UARTを使ったデータ通信では受け取るファイルのサイズは上�
 ```mpi.tx.py
 #!/usr/bin/env python3
 from mpi4py import MPI
-from aelib import uart
+from pyuart import uart
 
 comm = MPI.COMM_WORLD
 proc_id = comm.Get_rank()

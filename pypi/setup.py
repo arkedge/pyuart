@@ -12,10 +12,11 @@ setup(
     name='pyuart', # パッケージ名(プロジェクト名)
     packages=['pyuart'], # パッケージ内(プロジェクト内)のパッケージ名をリスト形式で指定
 
-    version='0.0.1', # バージョン
+    version='0.0.5', # バージョン
 
     license='MIT', # ライセンス
 
+    #install_requires=['pyserial-3.5'], # pip installする際に同時にインストールされるパッケージ名をリスト形式で指定
     install_requires=['pyserial'], # pip installする際に同時にインストールされるパッケージ名をリスト形式で指定
 
     author='Tsuyoshi Hamada', # パッケージ作者の名前
