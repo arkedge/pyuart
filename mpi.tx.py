@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from mpi4py import MPI
-from aelib import uart
+from pyuart import uart
 
 if __name__ == '__main__':
 
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     devfile = "/dev/ttyUSB%d" % proc_id
     print(devfile, flush=True)
 
-    u0 = uart.uart(dev=devfile, baudrate = 115200, timeout = 15)
+    u0 = uart(dev=devfile, baudrate = 115200, timeout = 15)
     u0.open()
 
     while True:
