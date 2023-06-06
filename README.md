@@ -46,7 +46,7 @@ sudo chmod 666 /dev/ttyUSB0
 ```:test_tx.py
 from pyuart import uart
 
-u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0 = uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
 
 u0.tx(1)
@@ -62,7 +62,7 @@ u0.close()
 ```:test_rx.py
 from pyuart import uart
 
-u0 = uart.uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
+u0 = uart(dev='/dev/ttyS0', baudrate = 115200, timeout = 240)
 u0.open()
 
 for data in u0.rx():
@@ -79,7 +79,7 @@ u0.close()
 ```:sample.tx.file.py
 from pyuart import uart
 
-u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0 = uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
 
 u0.tx_file(filename = '/tmp/file.bin')
@@ -93,7 +93,7 @@ u0.close()
 ```sample.rx.file.py
 from pyuart import uart
 
-u0 = uart.uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
+u0 = uart(dev='/dev/ttyUSB0', baudrate = 115200, timeout = 15)
 u0.open()
 
 u0.rx_file(filename = './recv.bin', n_byte = 1048576)
@@ -127,7 +127,7 @@ hostname = MPI.Get_processor_name()
 devfile = "/dev/ttyUSB%d" % proc_id
 print(devfile, flush=True)
 
-u0 = uart.uart(dev=devfile, baudrate = 115200, timeout = 15)
+u0 = uart(dev=devfile, baudrate = 115200, timeout = 15)
 u0.open()
 u0.tx(123)
 
